@@ -3,6 +3,8 @@ var express = require('express');
 var http = require('http');
 var fs = require('fs');
 
+//var router = express.Router();
+
 var seats = [
     [1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1],
     [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
@@ -20,7 +22,7 @@ var seats = [
 
 var app = express();
 
-app.use(app.router);
+//router.use(app.router);
 
 app.get('/', function(request, response, next){
     fs.readFile('HTMLPage.html', function(error, data){
@@ -28,7 +30,7 @@ app.get('/', function(request, response, next){
     })
 })
 
-app.get('/seats', function(request.response, next){
+app.get('/seats', function(request, response, next){
     response.send(seats)
 })
 
